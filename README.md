@@ -7,3 +7,5 @@ A simple React list with favorite and remove actions. This application uses RxJS
 Run `npm install` and `npm start`. Webpack will build the assets.
 
 In a new pane, `open index.html`.
+
+Run `npm test` for start tests
