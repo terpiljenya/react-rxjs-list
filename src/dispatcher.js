@@ -9,7 +9,7 @@ var {getLog, addRecord} = require('./store/log-model');
 var stateStream = new Rx.ReplaySubject(1);
 var logStream = new Rx.ReplaySubject(1);
 
-Intent.actionStream.subscribe(function (payload) {
+var listDispatcher = function (payload) {
   var selectedItems;
   switch(payload.action) {
     case Keys.FAVORITE:
@@ -48,9 +48,11 @@ Intent.actionStream.subscribe(function (payload) {
       console.warn(`${payload.action} not recognized in model.`);
   }
   return payload;
-});
+};
 
-Intent.actionStream.subscribe(function (payload) {
+Intent.actionStream.subscribe(listDispatcher);
+
+var logDispatcher = function (payload) {
   switch(payload.action) {
     case Keys.FAVORITE:
     case Keys.UNFAVORITE:
@@ -68,7 +70,9 @@ Intent.actionStream.subscribe(function (payload) {
     default:
       console.warn(`${payload.action} not recognized in model.`);
   }
-});
+};
+
+Intent.actionStream.subscribe(logDispatcher);
 
 //init
 stateStream.onNext(getState());
