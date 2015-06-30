@@ -45,7 +45,7 @@ var listDispatcher = function (payload) {
       stateStream.onNext(getState());
       break;
     default:
-      console.warn(`${payload.action} not recognized in model.`);
+      console.warn(`${payload.action} not recognized in list model.`);
   }
   return payload;
 };
@@ -68,7 +68,7 @@ var logDispatcher = function (payload) {
       logStream.onNext(getLog());
       break;
     default:
-      console.warn(`${payload.action} not recognized in model.`);
+      console.warn(`${payload.action} not recognized in log model.`);
   }
 };
 

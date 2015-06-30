@@ -80,4 +80,13 @@ describe("ListStore", function () {
     });
     expect(_.size(List.getState().items)).toBe(2);
   });
+  
+  it("doesn't update the internal store when a random action is dispatched", function () {
+    var state = List.getState();
+    listDispatcher({
+      action: "RANDOM_ACTION",
+      id: 1
+    })
+    expect(List.getState()).toEqual(state);
+  });
 });
