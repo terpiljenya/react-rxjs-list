@@ -18,7 +18,6 @@ class List extends React.Component {
   }
 
   render() {
-    console.log('props', this.props);
     var listNodes = [],
         items = this.props.items,
         someoneSelected = false;

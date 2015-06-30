@@ -31,7 +31,6 @@ var state = {
 };
 
 function updateItem(id, updates) {
-  console.log(id, updates);
   state.items[id] = _.assign(state.items[id], updates);
 }
 
